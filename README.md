@@ -1,7 +1,7 @@
-###mediantDoc
+### mediantDoc
 Document an AudioCodes Mediant Gateway/SBC directly from powershell
 
-##THIS IS AN EARLY PREVIEW
+## THIS IS AN EARLY PREVIEW
 
 The latest release is hosted on PowerShell Gallery https://www.powershellgallery.com/packages/WordDoc/
 
