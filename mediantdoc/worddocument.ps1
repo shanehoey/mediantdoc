@@ -46,4 +46,6 @@ if($templatefile)
 
 . .\files\appendix.ps1
 
+. .\files\endpage.ps1
+
 Update-WordTOC

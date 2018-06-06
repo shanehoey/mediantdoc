@@ -1468,13 +1468,3 @@ class MessagePolicy {
   $MessagePolicy_Name
 }
 Update-TypeData -TypeName MessagePolicy -MemberType Scriptmethod -MemberName 'viewOverview' -Value { $this | select-object * } -Force     
-
-class EMSService { 
-  $EMSService_ServiceName
-  $EMSService_PrimaryServer
-  $EMSService_SecondaryServer
-  $EMSService_DeviceLoginInterface
-  $EMSService_EMSInterface
-}
-Update-TypeData -TypeName EMSService -MemberType Scriptmethod -MemberName 'viewOverview' -Value { $this | select-object * } -Force     
-

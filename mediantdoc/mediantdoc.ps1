@@ -122,6 +122,7 @@ $section["IPNetwork"] = $true
 $section["SignalingMedia"] = $true
 $section["Administration"] = $true
 $section["Troubleshoot"] = $true
+$section["Endpage"] = $true
 $section["Appendix"] = $true
 $section["Dev"] = $true # this should only be  true when developing the script as it adds sections not yet completed
 
