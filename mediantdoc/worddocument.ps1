@@ -49,3 +49,5 @@ if($templatefile)
 . .\files\endpage.ps1
 
 Update-WordTOC
+
+(get-wordInstance).options.checkspellingasyoutype = $true

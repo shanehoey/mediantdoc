@@ -4,6 +4,7 @@ if ($PSBoundParameters.ContainsKey('WordTemplate')) {
 }    
 else { 
     write-host "Load Word Template ?" -foregroundcolor Yellow
+    
     switch (($host.ui.PromptForChoice("", "Do you want to use an existing word Document as a Template ??", [System.Management.Automation.Host.ChoiceDescription[]]((New-Object System.Management.Automation.Host.ChoiceDescription "&Yes"), (New-Object System.Management.Automation.Host.ChoiceDescription "&No")), 1))) {
         0 {  
             Write-warning -Message "Due to a bug the open file dialog box may be behind other windows"

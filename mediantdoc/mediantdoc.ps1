@@ -1,7 +1,7 @@
 
 <#PSScriptInfo
 
-.VERSION 0.0.1
+.VERSION 0.0.3
 
 .GUID 3f2891e3-e02e-4b8c-ae49-3dcf2a2335b3
 
@@ -31,9 +31,6 @@ https://shanehoey.github.io/mediantdoc
 #> 
 
 #Requires -Module WordDoc
-
-
-
 
 <# 
 
@@ -108,6 +105,33 @@ Param(
     [Parameter( Mandatory = $false, ParameterSetName = "MediantConfigFile")]
     [Parameter( Mandatory = $false, ParameterSetName = "MediantDevice")]
     [Parameter( Mandatory = $false, ParameterSetName = "Default")]
+    [bool]$notifyupdates = $true,
+
+    [Parameter( Mandatory = $false, ParameterSetName = "MediantConfigFile")]
+    [Parameter( Mandatory = $false, ParameterSetName = "MediantDevice")]
+    [Parameter( Mandatory = $false, ParameterSetName = "Default")]
+    [string]$DocumentTitle = "MediantDoc by Shane Hoey",
+
+    [Parameter( Mandatory = $false, ParameterSetName = "MediantConfigFile")]
+    [Parameter( Mandatory = $false, ParameterSetName = "MediantDevice")]
+    [Parameter( Mandatory = $false, ParameterSetName = "Default")]
+    [string]$DocumentCustomer = "Shane Hoey",
+
+    [ValidateNotNullOrEmpty()]  
+    [ValidateScript( {(Test-Path $_) -and ((Get-Item $_).Extension -like ".json")})]  
+    [Parameter(ValueFromPipeline = $false, Mandatory = $false, ParameterSetName = "MediantConfigFile")]
+    [Parameter(ValueFromPipeline = $false, Mandatory = $false, ParameterSetName = "MediantDevice")]
+    [Parameter(ValueFromPipeline = $false, Mandatory = $false, ParameterSetName = "Default")]
+    [string]$DesignJson,
+
+    [Parameter(ValueFromPipeline = $false, Mandatory = $false, ParameterSetName = "MediantConfigFile")]
+    [Parameter(ValueFromPipeline = $false, Mandatory = $false, ParameterSetName = "MediantDevice")]
+    [Parameter(ValueFromPipeline = $false, Mandatory = $false, ParameterSetName = "Default")]
+    [switch]$DownloadSampleDesignText,
+
+    [Parameter( Mandatory = $false, ParameterSetName = "MediantConfigFile")]
+    [Parameter( Mandatory = $false, ParameterSetName = "MediantDevice")]
+    [Parameter( Mandatory = $false, ParameterSetName = "Default")]
     [bool]$notifyupdates = $true
 
 )
@@ -125,6 +149,16 @@ $section["Troubleshoot"] = $true
 $section["Endpage"] = $true
 $section["Appendix"] = $true
 $section["Dev"] = $true # this should only be  true when developing the script as it adds sections not yet completed
+
+
+
+# for dev only make sure you coment out ! 
+if ($section.dev) {
+    [string]$MediantDeviceProtocol = "HTTP"
+    [bool]$notifyupdates = $true
+    [string]$DocumentTitle = "MediantDoc by Shane Hoey"
+    [string]$DocumentCustomer = "Shane Hoey"
+}
 
 . .\classes.ps1
 . .\functions.ps1

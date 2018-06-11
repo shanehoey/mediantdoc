@@ -143,10 +143,10 @@ if($section.IPNetwork) {
             IF ($TLSContexts) 
             { 
                 Add-WordTable -Object $TLSContexts.viewOverview() @GridTableBlack
-                foreach ($item in $tlsContexts) 
+                foreach ($item in ($tlsContexts -as [array]))
                 { 
-                    Add-WordTable -Object $TLSContexts.viewGeneral() @GridTableGrey -VerticleTable -HeaderRow $true
-                    Add-WordTable -Object $TLSContexts.viewOCSP() @GridTableGrey -VerticleTable -HeaderRow $false
+                    Add-WordTable -Object $item.viewGeneral() @GridTableGrey -VerticleTable -HeaderRow $true
+                    Add-WordTable -Object $item.viewOCSP() @GridTableGrey -VerticleTable -HeaderRow $false
                 }
             }
             else 

@@ -6,7 +6,7 @@ $NuGetApiKey
 $cert = Get-ChildItem Cert:\CurrentUser\My -CodeSigningCert
 $cert | format-table subject,issuer
 
-$version = "0.0.1"
+$version = "0.0.3"
 
 Update-ScriptFileInfo -Path ".\mediantDoc\mediantDoc.ps1" -Version $version -Author "Shane Hoey" -Copyright "2018 Shane Hoey" `
                         -RequiredModules WordDoc  -ProjectUri https://shanehoey.github.io/mediantdoc -ReleaseNotes https://shanehoey.github.io/mediantdoc `
